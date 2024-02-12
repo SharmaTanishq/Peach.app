@@ -1,0 +1,1 @@
+export {getMultipleArtist} from './getArtist'

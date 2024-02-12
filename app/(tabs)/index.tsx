@@ -1,31 +1,42 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import { Text } from "@atoms";
 
-export default function TabOneScreen() {
+import { theme } from "@theme";
+
+import { GradientLayout } from "components/GradientLayout";
+
+export default function index() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+    <GradientLayout>
+      <Text color="white">Home</Text>
+    </GradientLayout>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: theme.colors.background,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  background: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    height: "100%",
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+
+  button: {
+    padding: 15,
+    alignItems: "center",
+    borderRadius: 5,
+  },
+  text: {
+    backgroundColor: "transparent",
+    fontSize: 15,
+    color: "#fff",
   },
 });

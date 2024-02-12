@@ -2,11 +2,21 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "@theme":["./libs/theme/theme.tsx"],
+      "@atoms":["./libs/atoms/index.tsx"],
+      "@molecules":["./libs/molecules/index.tsx"],
+      "@organisms":["./libs/organisms/index.tsx"],
+      "@constant/*":["./constants/*"],
+      "@utils/faker":["./libs/utils/Faker"],
+      "@Icons":["./assets/svgs/index.js"]
+    }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "libs/atoms/BottomSheet/DynamicSnapPointBottomSheet.tsx"  ]
 }

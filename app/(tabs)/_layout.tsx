@@ -1,53 +1,88 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
 
-import Colors from '../../constants/Colors';
+import { Tabs, useNavigation } from "expo-router";
+
+import {  Text } from "@atoms";
+import { theme } from "@theme";
+
+import { Ionicons } from "@expo/vector-icons";
+
+import { Ticket } from "@Icons";
+import { useEffect } from "react";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+  
+  useEffect(()=>{
+   
+    
+  },[])
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-      }}>
+    screenOptions={({ route }) => ({
+      headerShown: false,
+      tabBarStyle: {
+        backgroundColor: theme.colors.background,
+        borderTopWidth: 0,
+        display: route.name === '()' ? 'none' : 'flex',
+      },
+      tabBarShowLabel: false,
+    })}
+    
+    >
       <Tabs.Screen
-        name="index"
+         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
+          
+          
+          tabBarIcon: ({ color }) => <Text variant="bold28">🍑</Text>,
+        }}
+      />
+      <Tabs.Screen
+        name="eventScreen"
+        options={{
+          title: "Tab Two",
+          
+          tabBarIcon: ({ color, focused }) => (
+            <Ticket size={32} color ={focused ? theme.colors.primary : theme.colors.textInputLightBG}/>
+          ),
+        }}
+      />
+      
+      <Tabs.Screen
+        name="chatScreen"
+        options={{
+          title: "Tab Three",
+          
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name="chatbubble-ellipses-outline"
+              size={28}
+              color={
+                focused ? theme.colors.primary : theme.colors.textInputLightBG
+              }
+            />
+           
           ),
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="profile"
+        
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          //tabBarStyle:{display:'none'},
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name="person-circle-outline"
+              size={28}
+              color={
+                focused ? theme.colors.primary : theme.colors.textInputLightBG
+              }
+            />
+          ),
         }}
       />
     </Tabs>
