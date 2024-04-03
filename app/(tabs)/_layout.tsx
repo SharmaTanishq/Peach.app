@@ -1,13 +1,14 @@
 
-import { Tabs, useNavigation } from "expo-router";
+import { Tabs } from "expo-router";
 
-import {  Text } from "@atoms";
+import {  Box, Text } from "@atoms";
 import { theme } from "@theme";
 
 import { Ionicons } from "@expo/vector-icons";
 
-import { Ticket } from "@Icons";
+import { Ticket,Chat,Notification, HomeIcon } from "@Icons";
 import { useEffect } from "react";
+import { TouchableOpacity } from "react-native";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -23,7 +24,7 @@ export default function TabLayout() {
   return (
     <Tabs
     screenOptions={({ route }) => ({
-      headerShown: false,
+      headerShown:false,
       tabBarStyle: {
         backgroundColor: theme.colors.background,
         borderTopWidth: 0,
@@ -35,10 +36,28 @@ export default function TabLayout() {
     >
       <Tabs.Screen
          name="index"
-        options={{
-          
-          
-          tabBarIcon: ({ color }) => <Text variant="bold28">🍑</Text>,
+         options={{
+          headerShown:true,
+          headerTransparent:true,
+          headerTitle:"",                    
+          headerLeft:()=>
+            <Box flexDirection="row" justifyContent="center" alignItems="center" paddingHorizontal="s24">
+              <Text color="white" variant="semiBold24">Peach </Text>
+              <Text color="white" variant="regular16">| G - town </Text>
+              <TouchableOpacity>
+                
+              </TouchableOpacity>
+            </Box>,
+          headerRight:()=>
+          <Box flexDirection="row"  flex={1} justifyContent="space-around" alignItems="center" marginRight="s18"  width={100} >
+            <TouchableOpacity>
+              <Notification size={38} color ={"white"} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Chat size={32} color ={"white"}/>
+            </TouchableOpacity>
+          </Box>,
+          tabBarIcon: ({ color,focused }) =><HomeIcon size={32} color ={focused ? theme.colors.primary : theme.colors.textInputLightBG} />,
         }}
       />
       <Tabs.Screen
@@ -58,14 +77,8 @@ export default function TabLayout() {
           title: "Tab Three",
           
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name="chatbubble-ellipses-outline"
-              size={28}
-              color={
-                focused ? theme.colors.primary : theme.colors.textInputLightBG
-              }
-            />
-           
+            
+            <Chat size={36} color ={focused ? theme.colors.primary : theme.colors.textInputLightBG}/>
           ),
         }}
       />

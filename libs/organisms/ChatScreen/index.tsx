@@ -22,8 +22,7 @@ const index = (props: Props) => {
             heading="Inbox"
             subHeading=""
           />
-            <LikesYou/>
-          
+            <LikesYou/>            
             <Conversations/>
           
         </Box>

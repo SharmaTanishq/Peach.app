@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native'
 import * as React from 'react'
 import { Box, CircleBackground, Text } from '@atoms'
 import { generateRandomLikes } from 'libs/utils/Faker/getLikes'
-import { Feather } from '@expo/vector-icons'
+
+import { LoveLine } from '@Icons'
 import { theme } from '@theme'
 
 type Props = {}
@@ -21,7 +22,7 @@ const index = (props: Props) => {
               width={70}
               height={70}                         
             >
-                <Feather name="heart" size={28} color={theme.colors.primary} />
+                <LoveLine name="heart" size={28} color={theme.colors.primary} />
             </CircleBackground>
 
             <Box  justifyContent='space-around' padding='s10' >

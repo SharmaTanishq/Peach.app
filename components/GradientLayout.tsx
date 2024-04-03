@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TextProps } from './Themed';
+
 import { StyleSheet, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { theme } from '@theme';
@@ -18,6 +18,7 @@ export function GradientLayout({children}: Props) {
           locations={[0,0.12,0.61,0.95]}
           colors={[theme.colors.primary,theme.colors.primaryGradient,'black',theme.colors.background]}
         />
+        
         {children}
     </View>
   );
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.colors.background,
+    //backgroundColor: theme.colors.background,
   },
   background: {
     position: 'absolute',

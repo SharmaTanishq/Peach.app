@@ -46,7 +46,6 @@ const MusicBreakdown = (props: Props) => {
               directionalLockEnabled
               contentContainerStyle={{
                 paddingBottom: 20,
-
                 alignSelf: "center",
               }}
               renderItem={(item) => (
